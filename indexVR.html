@@ -21,24 +21,47 @@
         <a-asset-item id="sloth" src="./src/paramylodon/scene.gltf"></a-asset-item>
 
         <a-mixin id="walking-mastodon" animation-mixer="clip: Mastodon_Walk;"></a-mixin>
+        <a-mixin id="idle-bear" animation-mixer="clip: ShortFacedBear_Idle;"></a-mixin>
+        <a-mixin id="stand-bear" animation-mixer="clip: ShortFacedBear_Standing-Quadruped;"></a-mixin>
         <a-mixin id="walking-bear" animation-mixer="clip: ShortFacedBear_Walk;"></a-mixin>
         <a-mixin id="walking-smilodon" animation-mixer="clip: Sabertooth_Walk Cycle;"></a-mixin>
+        <a-mixin id="idle-smilodon" animation-mixer="clip: Sabertooth_Idle;"></a-mixin>
+        <a-mixin id="idle-teratorn" animation-mixer="clip: Teratorn_Idle;"></a-mixin>
+        <a-mixin id="idle2-teratorn" animation-mixer="clip: Teratorn_Flying-Idle;"></a-mixin>
         <a-mixin id="flying-teratorn" animation-mixer="clip: Teratorn_Selection-Flying;"></a-mixin>
-        <a-mixin id="walking-sloth" animation-mixer="clip: Harlans_Ground_Sloth_Walk;"></a-mixin>
+        <a-mixin id="idle-sloth" animation-mixer="clip: Harlans_Ground_Sloth_Idle;"></a-mixin>
+        <a-mixin id="stand-sloth" animation-mixer="clip: Harlans_Ground_Sloth-Stand;"></a-mixin>
       </a-assets>
 
       <!-- Ground -->
-      <a-entity environment="preset: forest; sunPosition: none; shadow: true; groundColor:snow; skyColor:#35415e; groundTexture: walkernoise;"></a-entity>
+      <a-entity environment="preset: forest; ground: flat; sunPosition: none; shadow: true; groundColor:green; seed: 2; skyColor:#35415e; groundTexture: walkernoise;"></a-entity>
       
       <!-- Camera -->
-      <a-camera position="-1 1 10" raycaster="objects: .clickable;"><a-cursor></a-cursor></a-camera>
+      <a-camera position="6 1 30" raycaster="objects: .clickable;"><a-cursor></a-cursor></a-camera>
 
       <!-- Posisi -->
-      <a-entity rotation="0 360 0" position="-2 0 -5" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon"></a-entity>
-      <a-entity position="2 0 -10" scale="1 1 1" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" click-handler class="clickable"></a-entity>
-      <a-entity position="2 0 -5" scale="1 1 1" gltf-model="#bear" animation-mixer mixin="walking-bear"></a-entity>
-      <a-entity position="0 2 -5" scale="0.4 0.4 0.4" gltf-model="#teratorn" animation-mixer mixin="flying-teratorn"></a-entity>
-      <a-entity position="0 0 -5" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="walking-sloth"></a-entity>
+      <a-entity rotation="0 -270 0" position="-20 0 -30" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" animation__move="property:position; to:70 0 -30; dur: 30000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-25 0 -30" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" animation__move="property:position; to:70 0 -30; dur: 40000"></a-entity>
+      <a-entity rotation="0 360 0" position="20 0 -20" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="idle-smilodon"></a-entity>
+      
+      <a-entity rotation="0 -270 0" position="-40 0 -10" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-35 0 -13" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 5; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-35 0 -15" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 15; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-30 0 -10" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
+      
+      <a-entity position="30 0 15" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="idle-bear"></a-entity>
+      <a-entity rotation="0 270 0" position="24.5 0 20" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="standing-bear"></a-entity>
+      <a-entity rotation="0 270 0" position="20 0 21" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="walking-bear" animation__move="property:position; to:-30 0 21; dur: 70000"></a-entity>
+      
+       
+      <a-entity position="10.5 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="idle-teratorn"></a-entity>
+      <a-entity position="11.5 1.8 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="idle2-teratorn"></a-entity>
+      <a-entity rotation="0 90 0"  position="-40 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="flying-teratorn" animation__move="property:position; to:70 0 10; dur: 8000"></a-entity>
+     
+      <a-entity rotation="0 180 0" position="0 0 30" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="idle-sloth"></a-entity>
+      <a-entity rotation="0 -90 0" position="-1 0 28" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="idle-sloth"></a-entity>
+      <a-entity rotation="0 90 0" position="3 0 30" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="stand-sloth"></a-entity>
+    
     
     </a-scene>
   </body>
