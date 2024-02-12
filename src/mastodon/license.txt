@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low poly American mastodon (Mammut americanum)
+* source:	https://sketchfab.com/3d-models/low-poly-american-mastodon-mammut-americanum-ce335fa19cb141ae8467bb8d4320f56b
+* author:	Natural History Museum of Los Angeles County (https://sketchfab.com/NHMLA)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low poly American mastodon (Mammut americanum)" (https://sketchfab.com/3d-models/low-poly-american-mastodon-mammut-americanum-ce335fa19cb141ae8467bb8d4320f56b) by Natural History Museum of Los Angeles County (https://sketchfab.com/NHMLA) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

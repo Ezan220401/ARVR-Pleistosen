@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/meshoptimizer@0.19.0/meshopt_decoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+      
+</head>
+  <body>
+    <!--Jalankan dengan live server -->
+    <a-scene background="color: #FAFAFA">
+      <!-- Aset -->
+      <a-assets>
+        <a-asset-item id="mastodon"src="./src/mastodon/scene.gltf"></a-asset-item>
+        <a-asset-item id="teratorn" src="./src/teratorn/scene.gltf"></a-asset-item>
+        <a-asset-item id="smilodon" src="./src/smilodon/scene.gltf"></a-asset-item>
+        <a-asset-item id="bear" src="./src/arctodus/scene.gltf"></a-asset-item>
+        <a-asset-item id="sloth" src="./src/paramylodon/scene.gltf"></a-asset-item>
+
+        <a-mixin id="walking-mastodon" animation-mixer="clip: Mastodon_Walk;"></a-mixin>
+        <a-mixin id="walking-bear" animation-mixer="clip: ShortFacedBear_Walk;"></a-mixin>
+        <a-mixin id="walking-smilodon" animation-mixer="clip: Sabertooth_Walk Cycle;"></a-mixin>
+        <a-mixin id="flying-teratorn" animation-mixer="clip: Teratorn_Selection-Flying;"></a-mixin>
+        <a-mixin id="walking-sloth" animation-mixer="clip: Harlans_Ground_Sloth_Walk;"></a-mixin>
+      </a-assets>
+
+      <!-- Ground -->
+      <a-entity environment="preset: forest; sunPosition: none; shadow: true; groundColor:snow; skyColor:#35415e; groundTexture: walkernoise;"></a-entity>
+      
+      <!-- Camera -->
+      <a-camera position="-1 1 10" raycaster="objects: .clickable;"><a-cursor></a-cursor></a-camera>
+
+      <!-- Posisi -->
+      <a-entity rotation="0 360 0" position="-2 0 -5" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon"></a-entity>
+      <a-entity position="2 0 -10" scale="1 1 1" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" click-handler class="clickable"></a-entity>
+      <a-entity position="2 0 -5" scale="1 1 1" gltf-model="#bear" animation-mixer mixin="walking-bear"></a-entity>
+      <a-entity position="0 2 -5" scale="0.4 0.4 0.4" gltf-model="#teratorn" animation-mixer mixin="flying-teratorn"></a-entity>
+      <a-entity position="0 0 -5" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="walking-sloth"></a-entity>
+    
+    </a-scene>
+  </body>
+</html>
