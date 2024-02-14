@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pleistosen AR Scan</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <script>
+      function rotateObject() {
+        var objectEntity = document.querySelector('#sloth');
+        var currentRotation = objectEntity.getAttribute('rotation');
+    
+        objectEntity.setAttribute('rotation', {
+          x: currentRotation.x,
+          y: currentRotation.y + 10,
+          z: currentRotation.z
+        });
+      }
+    </script>
+  </head>
+  <body>
+
+
+    <!-- Aset -->
+    <a-assets>
+      <a-asset-item id="mastodon"src="./src/mastodon/scene.gltf"></a-asset-item>
+      <a-asset-item id="teratorn" src="./src/teratorn/scene.gltf"></a-asset-item>
+      <a-asset-item id="smilodon" src="./src/smilodon/scene.gltf"></a-asset-item>
+      <a-asset-item id="bear" src="./src/arctodus/scene.gltf"></a-asset-item>
+      <a-asset-item id="sloth" src="./src/paramylodon/scene.gltf"></a-asset-item>
+
+      <a-mixin id="walking-mastodon" animation-mixer="clip: Mastodon_Walk;"></a-mixin>
+      <a-mixin id="walking-bear" animation-mixer="clip: ShortFacedBear_Walk;"></a-mixin>
+      <a-mixin id="walking-smilodon" animation-mixer="clip: Sabertooth_Walk Cycle;"></a-mixin>
+      <a-mixin id="flying-teratorn" animation-mixer="clip: Teratorn_Selection-Flying;"></a-mixin>
+      <a-mixin id="walking-sloth" animation-mixer="clip: Harlans_Ground_Sloth_Walk;"></a-mixin>
+    </a-assets>
+    
+    <!-- Scan -->
+    <a-scene
+      id="bear"
+      mindar-image="imageTargetSrc: ./src/mind-asset/arctodus.mind;"
+      vr-mode-ui="enabled:false"
+      device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex:0">
+        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#bear" animation-mixer mixin="walking-bear"></a-entity>
+      </a-entity>
+    </a-scene>
+
+    <a-scene
+      id="sloth"
+      mindar-image="imageTargetSrc: ./src/mind-asset/paramylodon.mind;"
+      vr-mode-ui="enabled:false"
+      device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex:0">
+        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#sloth" animation-mixer mixin="walking-sloth"></a-entity>
+
+        <button onclick="rotateObject()" position="0 1.5 -2">Rotate Object</button>
+      </a-entity>
+    </a-scene>
+
+    <a-scene
+      id="teratorn"
+      mindar-image="imageTargetSrc: ./src/mind-asset/teratorn.mind;"
+      vr-mode-ui="enabled:false"
+      device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex:0"> <!--Posisinya cukup sulit diatur-->
+        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="-5 -4 -3" scale="0.7 0.7 0.7" gltf-model="#teratorn" animation-mixer mixin="walking-teratorn" shadow="cast: true; receive: false"></a-entity><a-entity material="emissive: #FFF; emissiveIntensity: 1;"></a-entity>
+      </a-entity>
+    </a-scene>
+
+    <a-scene
+      id="smilodon"
+      mindar-image="imageTargetSrc: ./src/mind-asset/smilodon.mind;"
+      vr-mode-ui="enabled:false"
+      device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex:0">
+        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon"></a-entity>
+         </a-entity>
+    </a-scene>
+
+    <a-scene id="mastodon" mindar-image="imageTargetSrc: ./src/mind-asset/mastodon.mind;" vr-mode-ui="enabled:false" device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex:0">
+        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
