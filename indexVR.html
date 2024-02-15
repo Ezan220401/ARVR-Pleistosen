@@ -13,9 +13,8 @@
 
 </head>
   <body>
-    <!--Jalankan dengan live server -->
     <a-scene background="color: #FAFAFA">
-      <!-- Aset -->
+      <!-- Aset : https://sketchfab.com/NHMLA -->
       <a-assets>
         <a-asset-item id="mastodon"src="./src/mastodon/scene.gltf"></a-asset-item>
         <a-asset-item id="teratorn" src="./src/teratorn/scene.gltf"></a-asset-item>
@@ -37,7 +36,7 @@
       </a-assets>
 
       <!-- Ground -->
-      <a-entity environment="preset: forest; ground: flat; sunPosition: none; shadow: true; groundColor:green; seed: 2; skyColor:#35415e; groundTexture: walkernoise;"></a-entity>
+      <a-entity environment="preset: forest; ground: flat; sunPosition: 3 5 -3; shadow: true; groundColor:#4c5a2d; seed: 2; skyColor:#35415e; groundTexture: walkernoise;"></a-entity>
       
       <!-- Camera -->
       <a-camera position="6 1 30"><a-cursor></a-cursor></a-camera>
@@ -45,27 +44,45 @@
       <!-- Teleporter -->
 
       <!-- Posisi -->
-      <a-entity rotation="0 -270 0" position="-20 0 -30" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" animation__move="property:position; to:70 0 -30; dur: 30000"></a-entity>
-      <a-entity rotation="0 -270 0" position="-25 0 -30" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" animation__move="property:position; to:70 0 -30; dur: 40000"></a-entity>
-      <a-entity rotation="0 360 0" position="20 0 -20" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="idle-smilodon"></a-entity>
+      <a-entity rotation="0 -270 0" position="-20 0 -30" scale="1 1 1" gltf-model="#smilodon" 
+        animation-mixer mixin="walking-smilodon" animation__move="property:position; to:90 0 -30; dur: 40000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-25 0 -30" scale="1 1 1" gltf-model="#smilodon" 
+        animation-mixer mixin="walking-smilodon" animation__move="property:position; to:90 0 -30; dur: 40000"></a-entity>
+      <a-entity rotation="0 360 0" position="20 0 -20" scale="1 1 1" gltf-model="#smilodon" 
+        animation-mixer mixin="idle-smilodon"></a-entity>
       
-      <a-entity rotation="0 -270 0" position="-40 0 -10" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
-      <a-entity rotation="0 -270 0" position="-35 0 -13" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 5; dur: 80000"></a-entity>
-      <a-entity rotation="0 -270 0" position="-35 0 -15" scale="1.5 1.5 1.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 15; dur: 80000"></a-entity>
-      <a-entity rotation="0 -270 0" position="-30 0 -10" scale="1 1 1" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-40 0 -10" scale="1.5 1.5 1.5" gltf-model="#mastodon" 
+        animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-35 0 -13" scale="1.5 1.5 1.5" gltf-model="#mastodon" 
+        animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 5; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-35 0 -15" scale="1.5 1.5 1.5" gltf-model="#mastodon" 
+        animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 15; dur: 80000"></a-entity>
+      <a-entity rotation="0 -270 0" position="-35 0 -10" scale="1 1 1" gltf-model="#mastodon" 
+        animation-mixer mixin="walking-mastodon" animation__move="property:position; to:70 0 10; dur: 80000"></a-entity>
       
-      <a-entity position="30 0 15" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="idle-bear"></a-entity>
-      <a-entity rotation="0 270 0" position="24.5 0 20" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="standing-bear"></a-entity>
-      <a-entity rotation="0 270 0" position="20 0 21" scale="1.3 1.3 1.3" gltf-model="#bear" animation-mixer mixin="walking-bear" animation__move="property:position; to:-30 0 21; dur: 80000"></a-entity>
+      <a-entity position="30 0 15" scale="1.3 1.3 1.3" gltf-model="#bear" 
+        animation-mixer mixin="idle-bear"></a-entity>
+      <a-entity rotation="0 270 0" position="24.5 0 20" scale="1.3 1.3 1.3" gltf-model="#bear" 
+        animation-mixer mixin="standing-bear"></a-entity>
+      <a-entity rotation="0 270 0" position="20 0 21" scale="1.3 1.3 1.3" gltf-model="#bear" 
+        animation-mixer mixin="walking-bear" animation__move="property:position; to:-30 0 21; dur: 80000"></a-entity>
       
        
-      <a-entity position="10.5 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="idle-teratorn"></a-entity>
-      <a-entity position="11.5 1.8 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="idle2-teratorn"></a-entity>
-      <a-entity rotation="0 90 0"  position="-40 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" animation-mixer mixin="flying-teratorn" animation__move="property:position; to:70 0 10; dur: 8000"></a-entity>
+      <a-entity position="10.5 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" 
+        animation-mixer mixin="idle-teratorn"></a-entity>
+      <a-entity position="11.5 1.8 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" 
+        animation-mixer mixin="idle2-teratorn"></a-entity>
+      <a-entity rotation="0 90 0"  position="-40 2 -35" scale="0.9 0.9 0.9" gltf-model="#teratorn" 
+        animation-mixer mixin="flying-teratorn" animation__move="property:position; to:90 0 10; dur: 9000"></a-entity>
+      <a-entity rotation="0 -90 0"  position="70 2 -15" scale="0.9 0.9 0.9" gltf-model="#teratorn" 
+        animation-mixer mixin="flying-teratorn" animation__move="property:position; to:-90 0 10; dur: 9000"></a-entity>
      
-      <a-entity rotation="0 180 0" position="0 0 30" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="idle-sloth"></a-entity>
-      <a-entity rotation="0 -90 0" position="-1 0 28" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="idle-sloth"></a-entity>
-      <a-entity rotation="0 90 0" position="3 0 30" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="stand-sloth"></a-entity>
+      <a-entity rotation="0 180 0" position="0 0 30" scale="1 1 1" gltf-model="#sloth" 
+        animation-mixer mixin="idle-sloth"></a-entity>
+      <a-entity rotation="0 -90 0" position="-1 0 28" scale="1 1 1" gltf-model="#sloth" 
+        animation-mixer mixin="idle-sloth"></a-entity>
+      <a-entity rotation="0 90 0" position="3 0 30" scale="1 1 1" gltf-model="#sloth" 
+        animation-mixer mixin="stand-sloth"></a-entity>
     
       <a-entity id="toAR" position="7 -1 28" material="src: url(https://www.pngkey.com/png/full/125-1251964_ftestickers-space-galaxy-circle-portal-blackhole-spira.png)" 
         simple-link="foo: bar; href: indexAR.html; title: Go to Pleistocence Parade" 

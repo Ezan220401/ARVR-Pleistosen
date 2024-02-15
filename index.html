@@ -2,33 +2,40 @@
 <html lang="en">
   <head>
     <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      body{
-        background-color: #1B1414;
-        background-image: url("./src/bg.png");
-        background-repeat: none;
-        background-size: 1200px 600px;
+      body {
+        display: grid;
+        grid-template-columns: 60% 20%;
+        background-color: #1b1414;
+        padding: 90px 20px;
+        font-size: 50px;
+      }
+      img {
+        width: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
       .button {
-        width: 50%;
+        width: 90%;
         height: 80px;
         display: inline-block;
         padding: 25px 25px;
         margin-top: 60px;
-        font-size: 50px;
         cursor: pointer;
         text-align: center;
         text-decoration: none;
         outline: none;
         color: black;
-        background-color: cyan;
+        background-color: #3e8e41;
         border: none;
         border-radius: 15px;
         box-shadow: 0 9px #999;
       }
 
       .button:hover {
-        background-color: #3e8e41;
+        background-color: cyan;
       }
 
       .button:active {
@@ -36,15 +43,34 @@
         box-shadow: 0 5px;
         transform: translateY(4px);
       }
+
+      @media (max-width: 600px) {
+        body {
+          grid-template-columns: repeat(1, 2fr);
+          row-gap: 2rem;
+          font-size: 40px;
+          padding: 10px;
+        }
+        .button{
+          width: 90%;
+        }
+        img{
+          width: 200px;          
+        }
+      }
     </style>
   </head>
   <body>
-    <div style="width: 100%; margin: 5%;">
-      <a href="indexAR.html" target="_blank" class="button">Scan Image for Augmented</a>
-      <a href="indexVR.html" target="_blank" class="button">Go to Pleistocence Age</a>
+    <div class="button-group">
+      <a href="indexAR.html" target="_blank" class="button"
+        >Augmented Pleistocence Parade</a>
+      <a href="indexVR.html" target="_blank" class="button"
+        >Virtual Pleistocence Age</a>
     </div>
-    </body>
+    <div class="image">
+      <img src="src/logo.png" alt="Natural History Museum" />
+    </div>
+  </body>
 </html>
-
 
 <!-- Live site: https://ezan220401.github.io/ARVR-Pleistosen/index.html -->

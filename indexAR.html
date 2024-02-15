@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pleistosen AR Scan</title>
+    <title>Pleistosen AR</title>
 
     <!-- <script src="https://aframe.io/releases/1.5.0/aframe.min.js">Trial</script> -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
@@ -14,7 +14,7 @@
   </head>
   <body>
 
-    <!-- Aset -->
+    <!-- Aset: https://sketchfab.com/NHMLA -->
     <a-assets>
       <a-asset-item id="sloth" src="./src/paramylodon/scene.gltf"></a-asset-item>
       <a-asset-item id="mastodon"src="./src/mastodon/scene.gltf"></a-asset-item>
@@ -32,15 +32,18 @@
     <!-- AR -->
     <a-scene >    
       <a-camera position="0 1.2 0"><a-cursor></a-cursor></a-camera>    
-      <a-entity position="-3 0 -3" scale="0.5 0.5 0.5">
+      <a-entity position="0 0 -3" scale="0.5 0.5 0.5">
         <a-sphere position="5 100 -1" scale="0.1" light="type: point; color: white; intensity: 20"></a-sphere>
         
-        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 500000" position="1 0 -1" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="walking-sloth" shadow="cast: true; receive: false"></a-entity>
-        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 500000" position="4.5 0 -1" scale="1.2 1.2 1.2" gltf-model="#bear" animation-mixer mixin="walking-bear" shadow="cast: true; receive: false"></a-entity>
-        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 500000" position="2.5 0 -5" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" shadow="cast: true; receive: false"></a-entity>
-        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 500000" position="0 0 -3" scale="2 2 2" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" shadow="cast: true; receive: false"></a-entity>
-        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 500000" position="-5 -4 -6" scale="0.7 0.7 0.7" gltf-model="#teratorn" animation-mixer mixin="walking-teratorn" shadow="cast: true; receive: false"></a-entity>
+        <a-text color="blue" position="-16 2 -3" value="Good Bye" scale="2 2 2" rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" ></a-text>
+        
+        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" position="-12 0 -3" scale="2 2 2" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon" shadow="cast: true; receive: false"></a-entity>
+        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" position="-7 0 -3" scale="1 1 1" gltf-model="#sloth" animation-mixer mixin="walking-sloth" shadow="cast: true; receive: false"></a-entity>
+        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" position="-5 0 -3" scale="1.2 1.2 1.2" gltf-model="#bear" animation-mixer mixin="walking-bear" shadow="cast: true; receive: false"></a-entity>
+        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" position="-3 0 -3" scale="1 1 1" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon" shadow="cast: true; receive: false"></a-entity>
+        <a-entity rotation="0 55 0" animation__move="property:position; to:90 0 -3; dur: 90000" position="-8 -4 -10" scale="0.7 0.7 0.7" gltf-model="#teratorn" animation-mixer mixin="walking-teratorn" shadow="cast: true; receive: false"></a-entity>
       </a-entity>
+
       <a-entity id="toVR" position="1 1 0" light="type: point; color: white; intensity: 20"
       color="gold" scale="0.7 0.7"
       simple-link="foo: bar; href: indexVR.html; title: Go to Pleistocence Age" 
