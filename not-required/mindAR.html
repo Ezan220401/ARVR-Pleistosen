@@ -45,8 +45,8 @@
         animation-mixer="clip: Sabertooth_Idle;"
       ></a-mixin>
       <a-mixin
-        id="idle-teratorn"
-        animation-mixer="clip: Teratorn_Idle;"
+        id="fly-teratorn"
+        animation-mixer="clip: Teratorn_Flying-Idle;"
       ></a-mixin>
       <a-mixin
         id="idle-sloth"
@@ -79,7 +79,7 @@
           rotation="0 90 0"
           light="type: ambient; intensity: 10"
           position="0 0 0"
-          scale="1 1 1"
+          scale="0.5 0.5 0.5"
           gltf-model="#bear"
           animation-mixer
           animation__rotate="property: rotation; to: 0 360 0; dur: 10000; loop: true"
@@ -128,7 +128,7 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex:0">
+      <a-entity mindar-image-target="targetIndex:0" position="0 -3 0">
         <!--Posisinya cukup sulit diatur-->
         <a-light
           type="point"
@@ -146,11 +146,11 @@
           rotation="0 90 0"
           light="type: spot; intensity: 10"
           position="0 -1 5"
-          scale="2 2 2"
+          scale="2.5 2.5 2.5"
           gltf-model="#teratorn"
           animation-mixer          
           animation__rotate="property: rotation; to: 0 360 0; dur: 10000; loop: true"
-          mixin="idle-teratorn"
+          mixin="fly-teratorn"
           shadow="cast: true; receive: false"
         ></a-entity
         ><a-entity material="emissive: #FFF; emissiveIntensity: 1;"></a-entity>
