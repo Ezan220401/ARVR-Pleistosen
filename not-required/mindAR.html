@@ -7,20 +7,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/meshoptimizer@0.19.0/meshopt_decoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-aframe.prod.js"></script>
-
-    <script>
-      function rotateObject() {
-        var objectEntity = document.querySelector('#sloth');
-        var currentRotation = objectEntity.getAttribute('rotation');
-    
-        objectEntity.setAttribute('rotation', {
-          x: currentRotation.x,
-          y: currentRotation.y + 10,
-          z: currentRotation.z
-        });
-      }
-    </script>
   </head>
   <body>
 
@@ -48,7 +37,8 @@
       device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex:0">
-        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#bear" animation-mixer mixin="walking-bear"></a-entity>
+        <a-light color="white" position="-1 1 0"></a-light>
+        <a-entity rotation="0 90 0" light="type: spot; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#bear" animation-mixer mixin="walking-bear"></a-entity>
       </a-entity>
     </a-scene>
 
@@ -59,7 +49,8 @@
       device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex:0">
-        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#sloth" animation-mixer mixin="walking-sloth"></a-entity>
+        <a-light type="ambient" color="#222"></a-light>
+        <a-entity rotation="0 90 0" light="type: spot; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#sloth" animation-mixer mixin="walking-sloth"></a-entity>
       </a-entity>
     </a-scene>
 
@@ -70,7 +61,7 @@
       device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex:0"> <!--Posisinya cukup sulit diatur-->
-        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="-5 -4 -3" scale="0.7 0.7 0.7" gltf-model="#teratorn" animation-mixer mixin="walking-teratorn" shadow="cast: true; receive: false"></a-entity><a-entity material="emissive: #FFF; emissiveIntensity: 1;"></a-entity>
+        <a-entity rotation="0 90 0" light="type: spot; intensity: 10" position="-5 -4 -3" scale="0.7 0.7 0.7" gltf-model="#teratorn" animation-mixer mixin="walking-teratorn" shadow="cast: true; receive: false"></a-entity><a-entity material="emissive: #FFF; emissiveIntensity: 1;"></a-entity>
       </a-entity>
     </a-scene>
 
@@ -81,14 +72,16 @@
       device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex:0">
-        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon"></a-entity>
+        <a-light type="point" color="blue" position="0 5 0"></a-light>
+        <a-entity rotation="0 90 0" light="type: spot; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#smilodon" animation-mixer mixin="walking-smilodon"></a-entity>
          </a-entity>
     </a-scene>
 
     <a-scene id="mastodon" mindar-image="imageTargetSrc: ./mind-asset/mastodon.mind;" vr-mode-ui="enabled:false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex:0">
-        <a-entity rotation="0 90 0" light="type: point; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon"></a-entity>
+        <a-light type="probe" envMap="#obj"></a-light>
+        <a-entity id="obj" rotation="0 90 0" light="type: spot; intensity: 10" position="0 0 0" scale="0.5 0.5 0.5" gltf-model="#mastodon" animation-mixer mixin="walking-mastodon"></a-entity>
       </a-entity>
     </a-scene>
   </body>
